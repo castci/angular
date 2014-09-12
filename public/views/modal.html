@@ -1,0 +1,19 @@
+    <form name="modalForm" ng-submit="submitAmount(modalForm.$valid)">    
+        <div class="modal-header">
+            <h3 class="modal-title">{{entity.name}} {{actionType}}</h3>
+        </div>
+        <div class="modal-body">
+            Please indicate the amount:
+            <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control" placeholder="Ammount" name="amount" ng-model="amount" required money max="{{maxAmount}}"> 
+            </div> 
+            <span class="controls error help-inline" ng-show="modalForm.amount.$invalid  && !modalForm.amount.$pristine">
+                The value must be minor or equal {{maxAmount}}
+            </span>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit">OK</button>
+            <button type='button' class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </form>

@@ -1,0 +1,58 @@
+		<div class="row" ng-init="showMovements()">
+            <div class="panel panel-success">
+                <div class="panel-heading">Movements</div>
+                <div class="panel-body">
+                    <table ng-table="tableParams" class="table">
+                         <thead>
+                            <tr>
+                                <th class="sortable" ng-class="{
+                                    'sort-asc': tableParams.isSortBy('entity', 'asc'),
+                                    'sort-desc': tableParams.isSortBy('entity', 'desc')}"
+                                    ng-click="tableParams.sorting({'entity' : tableParams.isSortBy('entity', 'asc') ? 'desc' : 'asc'})" rowspan="2">
+                                    <div><i class="glyphicon glyphicon-user"></i> Entities</div>
+                                </th>
+                                <th colspan="3" class="text-center">Movements</th>
+                            </tr>
+                            <tr>
+                                <th class="text-center sortable" ng-class="{
+                                    'sort-asc': tableParam.isSortBy('action', 'asc'),
+                                    'sort-desc':  tableParams.isSortBy('action', 'desc')}"
+                                    ng-click=" tableParams.sorting({'action' :  tableParams.isSortBy('action', 'asc') ? 'desc' : 'asc'})">
+                                    <div>Action</div>
+                                </th>
+                                <th class="text-center sortable" ng-class="{
+                                    'sort-asc':  tableParams.isSortBy('amount', 'asc'),
+                                    'sort-desc':  tableParams.isSortBy('amount', 'desc')}"
+                                    ng-click=" tableParams.sorting({'amount' :  tableParams.isSortBy('amount', 'asc') ? 'desc' : 'asc'})">
+                                    <div>Amount</div>
+                                </th>
+                                <th class="text-center sortable" ng-class="{
+                                    'sort-asc':  tableParams.isSortBy('created', 'asc'),
+                                    'sort-desc':  tableParams.isSortBy('created', 'desc')}"
+                                    ng-click=" tableParams.sorting({'created' :  tableParams.isSortBy('created', 'asc') ? 'desc' : 'asc'})">
+                                    <div>Date</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="mov in $data">
+                                <td data-title="'Name'" sortable="'entity'">
+                                    {{mov.entity}}
+                                </td>
+                                <td data-title="'Action'" sortable="'action'">
+                                    {{mov.action}}
+                                </td>
+                                <td data-title="'Amount'" sortable="'amount'">
+                                    {{mov.amount}}
+                                </td>
+                                <td data-title="'Date'" sortable="'created'">
+                                    {{mov.created * 1000 | date:'dd-MM-yyyy'}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <linechart data="data1" options="options" mode=""></linechart>
+      </div>
+		</div>

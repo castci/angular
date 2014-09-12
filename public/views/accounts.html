@@ -1,0 +1,48 @@
+		<div class="row" ng-init="listBanks()">
+			<div class="col-md-6">
+				<div class="row">
+					<div class="panel panel-primary" ng-repeat="bank in banks">
+						<div class="panel-heading">{{bank.name}} </div>
+						<div class="panel-body">
+							<div class="col-md-3 col-xs-6">
+								<span class="thumbnail bank">
+									<img src="img/bank1.png"  alt="bank">
+								</span>
+							</div>
+							<div class="col-md-9 col-xs-6 mount">
+								<h1>{{bank.amount | currency : symbol}}</h1> 
+							</div>
+							<div class="col-md-12 col-xs-12 button-mount" >
+								<span  ng-click="actionEntity(bank.id, 'deposit')" class="btn btn-primary btn-large" 
+								ng-class="{disabled : bag == 0}" role="button">Deposit</span> 
+								<span  ng-click="actionEntity(bank.id, 'withdraw')" class="btn btn-default btn-large" role="button">Withdraw</span>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="panel panel-info">
+					<div class="panel-heading">Pocket</div>	
+					<div class="panel-body">
+						<div class="col-md-3 col-xs-6">
+							<span class="thumbnail bank">
+								<img src="img/bag.png" alt="bank">
+							</span>
+						</div>
+						<div class="col-md-9 col-xs-6 mount">
+							<h1>{{bag | currency :  symbol}}</h1> 
+						</div>
+						<div ng-show="bag > 0" class="col-md-12 col-xs-12 button-mount" >
+							<span  ng-click="actionEntity(null,'create')" class="btn btn-default btn-large" role="button">Create Account</span>
+						</div>
+						<div class="col-md-12 col-xs-12 button-mount" >
+							<span  ng-show="bag == 0 && movements && !!commit "ng-click="save()" class="btn btn-default btn-large" role="button">Commit</span>
+							<span ng-show="commit" class="btn btn-default btn-large" >
+								<a href="/#!/movements">View movements</a>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

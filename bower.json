@@ -1,0 +1,16 @@
+{
+  "name": "bank-homework",
+  "description": "homework",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "latest",
+    "angular-mocks": "latest",
+    "angular-bootstrap": "latest",
+    "angular-route": "latest",
+    "angular-resource": "latest",
+    "bootstrap": "latest",
+    "ng-table" : "latest"
+  }
+}
