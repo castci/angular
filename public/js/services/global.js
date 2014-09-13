@@ -52,8 +52,10 @@ global.service('globalService', function (globalLS) {
 	}
 });
 
+
 /**
 * Directive for validate currency
+* Downloaded from github https://github.com/fiestah/angular-money-directive
 **/
 global.directive('money', function () {
   'use strict';

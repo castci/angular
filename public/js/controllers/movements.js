@@ -4,14 +4,16 @@ var movementsCtrl = angular.module('movementsCtrl');
 
 movementsCtrl.controller('MovementsCtrl', ['$scope', '$route', '$location', '$filter', 'globalLS', 'ngTableParams', function ($scope, $route, $location, $filter, globalLS, ngTableParams) {
 	var commit = globalLS.get('commit');
-	console.log(commit);
 	if(!commit){
 		return $location.path('/');
 	}
 	
 	$scope.showMovements = function () {
 		var movements = globalLS.getObject('movements');
+		
 		$scope.data = movements;
+
+
 		$scope.tableParams = new ngTableParams({
 			page: 1,
 			count: 10
@@ -31,17 +33,17 @@ movementsCtrl.controller('MovementsCtrl', ['$scope', '$route', '$location', '$fi
 			dataGraph[movements[mov].created].push(movements[mov].amount);
 		}
 
-		var data1 = [];
+		var customData = [];
 		var x = 0
 		for(var data in dataGraph){
-			data1.push({
+			customData.push({
 				x : x++,
 				val_0: dataGraph[data][0],
 				val_1: dataGraph[data][1]
 			}); 
 		}
 
-		$scope.data1 = data1;
+		$scope.dataGraph = customData;
 
 		$scope.options = {
 			stacks: [{axis: "y", series: ["id_0", "id_1"]}],
