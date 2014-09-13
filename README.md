@@ -7,6 +7,7 @@ Install
 ===============
 ```
 git clone https://github.com/castci/angularExercise.git
+cd angularExercise
 $ bower install
 ```
 The web server must be redirect to public dir.
