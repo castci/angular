@@ -21,8 +21,6 @@ accountsCtrl.controller('AccountsCtrl', ['$scope', '$route', '$location', '$moda
 		$scope.bag   = globalLS.get('bag');
 		$scope.commit = globalLS.get('commit');
 		$scope.movements = (Object.keys(movements).length == 0) ? false : true;
-
-		console.log(!!$scope.commit);
 	}
 
 	/**
@@ -86,7 +84,7 @@ var recordMovements = function(entity, type, amount, totalBag) {
 **/
 var ModalInstanceCtrl = function ($scope, $location, $modalInstance, action, globalLS) {
 
-	var bag = globalLS.get('bag');
+	var bag = ~~globalLS.get('bag');
 	var banks = globalLS.getObject('banks');
 
 	$scope.actionType = action.type;
