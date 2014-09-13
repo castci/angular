@@ -1,8 +1,10 @@
-angularExercise
+Angular Exercise
 ===============
 
-Examen para aplicar en un trabajo
+Exercise for job aplication
 
-Intall
+Install
 ===============
-
+```
+$ bower install
+```
