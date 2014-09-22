@@ -66,19 +66,6 @@ accountsCtrl.controller('AccountsCtrl', ['$scope', '$route', '$location', '$moda
 	}
 }]);
 
-var recordMovements = function(entity, type, amount, totalBag) {
-	var movemnts, 
-		movement = {
-			"type"   : type,
-			"entity" : entity,
-			"amount" : amount,
-			"totalBag" : totalBag,
-			"created" : new Date()
-		};
-
-
-}
-
 /*/
 * This controller contain the main action that you can do (deposit, withdraw, create).
 **/
